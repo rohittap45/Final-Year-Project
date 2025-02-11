@@ -3,18 +3,17 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
+    name= models.TextField(max_length=50)
     age = models.PositiveIntegerField()
     height = models.FloatField()
     weight = models.FloatField()
     target_weight = models.FloatField()
-    fitness_goal = models.TextField()
-    motivation = models.TextField()
-    current_body_shape = models.TextField()
+    fitness_goal = models.TextField()  
     target_body_shape = models.TextField()
-    workout_level = models.CharField(max_length=50)
+  
 
-    REQUIRED_FIELDS = ['email', 'age', 'height', 'weight', 'target_weight', 'fitness_goal',
-                       'motivation', 'current_body_shape', 'target_body_shape', 'workout_level']
+    REQUIRED_FIELDS = ['email','name', 'age', 'height', 'weight', 'target_weight', 'fitness_goal',
+                      'target_body_shape']
 
     def __str__(self):
         return self.username

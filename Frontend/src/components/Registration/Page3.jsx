@@ -25,21 +25,37 @@ const Page3 = () => {
     setUserData(updatedData);
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  
+  //   // Retrieve complete user data from localStorage
+  //   const completeUserData = JSON.parse(localStorage.getItem("userData")) || {};
+  
+  //   console.log("User Data Sent to Backend:", completeUserData);
+  
+  //   try {
+  //     const response = await axios.post("http://localhost:8000/api/users/register/", completeUserData);
+  //     console.log("Success Response:", response.data);
+  //   } catch (error) {
+  //     console.error("Error Response:", error.response ? error.response.data : error.message);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Retrieve complete user data from localStorage
     const completeUserData = JSON.parse(localStorage.getItem("userData")) || {};
   
     console.log("User Data Sent to Backend:", completeUserData);
   
     try {
-      const response = await axios.post("http://localhost:8000/api/users/register/", completeUserData);
-      console.log("Success Response:", response.data);
+      await axios.post("http://localhost:8000/api/diet-plan/", completeUserData);
+      window.location.href = "/dietplan"; // Redirect to diet plan page
     } catch (error) {
       console.error("Error Response:", error.response ? error.response.data : error.message);
     }
   };
+  
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-black">

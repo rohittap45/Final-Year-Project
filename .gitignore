@@ -1,0 +1,69 @@
+# General
+*.log
+*.pyc
+__pycache__/
+.DS_Store
+.env
+.vscode/
+.idea/
+node_modules/
+coverage/
+*.sqlite3
+
+# Django
+db.sqlite3
+/media/
+*.pyc
+*.pyo
+*.log
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
+instance/
+.env
+venv/
+.envrc
+*.pid
+Pipfile
+Pipfile.lock
+.mypy_cache/
+__pycache__/
+celerybeat-schedule
+logs/
+staticfiles/
+static/
+*.db
+.env.*
+
+# Django Migrations
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+
+# React (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.lock
+build/
+dist/
+.cache
+.eslintcache
+*.tsbuildinfo
+
+# Ignore local environment settings
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store

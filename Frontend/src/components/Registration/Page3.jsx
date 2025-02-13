@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Page3 = () => {
   const [userData, setUserData] = useState({
     targetBody: "",
     fitnessGoal: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     // Retrieve the existing data from localStorage
@@ -25,37 +27,22 @@ const Page3 = () => {
     setUserData(updatedData);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  
-  //   // Retrieve complete user data from localStorage
-  //   const completeUserData = JSON.parse(localStorage.getItem("userData")) || {};
-  
-  //   console.log("User Data Sent to Backend:", completeUserData);
-  
-  //   try {
-  //     const response = await axios.post("http://localhost:8000/api/users/register/", completeUserData);
-  //     console.log("Success Response:", response.data);
-  //   } catch (error) {
-  //     console.error("Error Response:", error.response ? error.response.data : error.message);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
   
+    // Retrieve complete user data from localStorage
     const completeUserData = JSON.parse(localStorage.getItem("userData")) || {};
   
     console.log("User Data Sent to Backend:", completeUserData);
   
     try {
-      await axios.post("http://localhost:8000/api/diet-plan/", completeUserData);
-      window.location.href = "/dietplan"; // Redirect to diet plan page
+      const response = await axios.post("http://localhost:8000/api/users/register/", completeUserData);
+      alert("The User registered Successfully");
+      navigate("../login");
     } catch (error) {
       console.error("Error Response:", error.response ? error.response.data : error.message);
     }
   };
-  
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-black">

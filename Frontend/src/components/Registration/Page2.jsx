@@ -28,11 +28,11 @@ const Page2 = () => {
         <form className="space-y-4" onSubmit={handleNext}>
           <div>
             <label>Height <span className="text-red-600">*</span></label>
-            <input type="text" name="height" onChange={handleChange} className="w-full p-2 border rounded" required />
+            <input type="number" name="height" onChange={handleChange} className="w-full p-2 border rounded" required />
           </div>
           <div>
             <label>Current Weight <span className="text-red-600">*</span></label>
-            <input type="text" name="weight" onChange={handleChange} className="w-full p-2 border rounded" required />
+            <input type="number" name="weight" onChange={handleChange} className="w-full p-2 border rounded" required />
           </div>
           <div>
             <label>Target Weight <span className="text-red-600">*</span></label>

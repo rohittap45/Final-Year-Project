@@ -31,20 +31,7 @@ const FooterSection = () => {
           </button>
         </div>
 
-        {/* Middle Section - Features */}
-        <div className="md:w-1/4 mx-35">
-          <h3 className="text-orange-500 text-sm font-bold mb-4">Features</h3>
-          <ul className="space-y-2 text-sm text-gray-300">
-            <li>Student Management</li>
-            <li>Calendar & Attendance</li>
-            <li>Invoices & Payments</li>
-            <li>Business Features</li>
-            <li>Learning Management</li>
-            <li>Multi-Tutor</li>
-            <li>Student Portal</li>
-            <li>Website Builder</li>
-          </ul>
-        </div>
+    
 
         {/* Right Section - Contact */}
         <div className="md:w-1/3" >

@@ -6,3 +6,14 @@ export default {
   },
   plugins: [],
 };
+
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"], // Add Roboto font
+      },
+    },
+  },
+};
+

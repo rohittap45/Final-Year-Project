@@ -17,13 +17,12 @@ const HeroSection = () => {
     <section className="relative w-full h-screen flex items-center bg-black text-white px-10 md:px-20" style={{backgroundColor: "#000000"}}>
       {/* Left Content */}
       <div className="w-full md:w-1/2 space-y-6 mx-17">
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-          MAKE YOUR <br /> BODY SHAPE
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight water-brush-regular">
+         NO PAIN <br /> <span className="ml-10 md:ml-16">NO GAIN</span>
         </h1>
-        <p className="text-gray-400">
-          LOREM LIPSUM LOREM LIPSUM LOREM LIPSUM LOREM LIPSUM
-          <br />
-          LOREM LIPSUM LOREM LIPSUM LOREM LIPSUM
+        <p className="text-gray-400 text-lg md:text-2xl">
+          “The worst thing I can be is the same as everybody else.” 
+          <br /> <span className="ml-15 md:ml-80">- Arnold Schwarzenegger</span>
         </p>
         {/* Buttons */}
         <div className="space-x-4 my-10">

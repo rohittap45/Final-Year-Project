@@ -71,8 +71,8 @@ const Dashboard = () => {
           <p className="text-2xl font-semibold">BMI: <span className="text-orange-500">{bmi}</span></p>
         </div>
         <div className="p-6 bg-gray-900 shadow-xl rounded-xl">
-          <p className="text-lg font-semibold">Calories: <span className="text-orange-500">{calorie_intake} kcal</span></p>
-          <p className="text-lg font-semibold">Protein: <span className="text-orange-500">{protein_intake} g</span></p>
+          <p className="text-lg font-semibold">Daily Calories Intake: <span className="text-orange-500">{calorie_intake} kcal</span></p>
+          <p className="text-lg font-semibold">Dailly Protein Intake: <span className="text-orange-500">{protein_intake} g</span></p>
         </div>
       </div>
 
@@ -92,7 +92,7 @@ const Dashboard = () => {
 
       {/* Weekly Calories Chart */}
       <div className="p-6 bg-gray-900 shadow-xl rounded-xl">
-        <h2 className="text-xl font-bold text-orange-500 mb-3">Weekly Calorie Consumption</h2>
+        <h2 className="text-xl font-bold text-orange-500 mb-3">Daily Calorie Consumption</h2>
         {weekly_calories.length > 0 ? (
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={weekly_calories}>

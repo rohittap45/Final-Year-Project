@@ -105,7 +105,7 @@ def get_dashboard_data(request, user_id):
 
         # Prepare response
         data = {
-            "name": user.first_name or user.username,
+            "name": user.name.split(" ")[0],
             # "current_weight": profile.current_weight,  
             # "target_weight": profile.target_weight,
             # "fitness_goal": profile.fitness_goal,

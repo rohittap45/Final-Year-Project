@@ -8,7 +8,6 @@ import FooterSection from './FooterSection'
 function HomePage() {
   return (
    <>
-      <Navbar/>
       <HeroSection/>
       <WhyChooseUs/>
       <ObjectivesSection/>

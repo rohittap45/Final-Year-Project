@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
-
+    setError(""); 
+  
     try {
       const response = await fetch("http://127.0.0.1:8000/api/users/login/", {
         method: "POST",
@@ -21,12 +23,13 @@ const LoginPage = () => {
           password: password,
         }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         alert("Login successful!"); 
-        localStorage.setItem("token", data.token); // Store token for authentication
+        localStorage.setItem("token", data.token); // Store JWT token
+        localStorage.setItem("user_id", data.user_id); // Store user ID separately
         window.location.href = "/dashboard"; // Redirect after login
       } else {
         setError(data.detail || "Invalid credentials");
@@ -35,6 +38,7 @@ const LoginPage = () => {
       setError("Network error. Please try again.");
     }
   };
+  
 
   return (
     <div className="bg-black min-h-screen flex flex-col items-center justify-center">
@@ -108,4 +112,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginPage; 

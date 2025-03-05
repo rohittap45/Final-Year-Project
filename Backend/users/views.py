@@ -35,7 +35,11 @@ class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.validated_data  # Serializer returns the authenticated user
-            tokens = get_tokens_for_user(user)  # Generate JWT tokens
-            return Response({"message": "Login successful", "tokens": tokens}, status=status.HTTP_200_OK)
+            user = serializer.validated_data  
+            tokens = get_tokens_for_user(user)  
+            return Response({
+                "message": "Login successful",
+                "token": tokens["access"],  # Return only the access token
+                "user_id": user.id  # Include user ID for frontend reference
+            }, status=status.HTTP_200_OK)
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)

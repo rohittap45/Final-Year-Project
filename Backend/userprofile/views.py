@@ -79,3 +79,49 @@ def change_weight(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request"}, status=400)
+from django.contrib.auth import get_user_model  # ✅ Import this
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+from .models import UserProfile, DailyTracking
+
+User = get_user_model()  # ✅ Get the custom user model
+
+@csrf_exempt
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def get_dashboard_data(request, user_id):
+    try:
+        user = User.objects.get(id=user_id)  # ✅ Use the custom user model
+        profile = UserProfile.objects.get(user=user)
+
+        # Get last 7 weight history records
+        weight_history = profile.weight_history[-7:] if profile.weight_history else []
+
+        # Get last 7 daily tracking records
+        daily_data = DailyTracking.objects.filter(user=user).order_by('-date')[:7]
+        weekly_calories = [{"day": d.date.strftime('%A'), "calories": d.calories_consumed} for d in daily_data]
+
+        # Prepare response
+        data = {
+            "name": user.first_name or user.username,
+            # "current_weight": profile.current_weight,  
+            # "target_weight": profile.target_weight,
+            # "fitness_goal": profile.fitness_goal,
+            "bmi": profile.bmi,
+            "calorie_intake": profile.calorie_intake,
+            "protein_intake": profile.protein_intake,
+            "calories_consumed_today": profile.calories_consumed,
+            "protein_consumed_today": profile.protein_consumed,
+            "weight_history": weight_history,
+            "weekly_calories": weekly_calories
+        }
+
+        return JsonResponse(data, safe=False)
+
+    except UserProfile.DoesNotExist:
+        return JsonResponse({"error": "User profile not found"}, status=404)
+
+    except User.DoesNotExist:
+        return JsonResponse({"error": "User not found"}, status=404)

@@ -10,6 +10,8 @@ import Page2 from './components/Registration/Page2';
 import Page3 from './components/Registration/Page3';
 import DietPlan from './components/Diet_Plan/DietPlan';
 import Dashboard from './components/Dashboard/Dashboard';
+import About from './components/StaticPages/About';
+import Contact from './components/StaticPages/Contact';
 
 function App() {
   return (
@@ -26,7 +28,10 @@ function App() {
         <Route path="/page2" element={<Page2 />} /> 
         <Route path="/page3" element={<Page3 />} />
         <Route path="/dietplan" element={<DietPlan />} />
-        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+
       </Routes>
     </Router>
   );

@@ -12,3 +12,14 @@ class DietPlan(models.Model):
 
     def _str_(self):
         return f"Diet Plan for {self.user.username} ({self.week_start_date})"
+
+class WorkoutPlan(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="workout_plans")
+    week_start_date = models.DateField(help_text="Start date of the workout plan week")
+    workout_data = models.JSONField(help_text="Stores workout plan for each day in JSON format")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def _str_(self):
+        return f"Workout Plan for {self.user.username} ({self.week_start_date})"    
+    

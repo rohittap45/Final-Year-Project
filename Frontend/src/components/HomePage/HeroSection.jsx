@@ -20,9 +20,9 @@ const HeroSection = () => {
         <h1 className="text-5xl md:text-6xl font-bold leading-tight water-brush-regular">
          NO PAIN <br /> <span className="ml-10 md:ml-16">NO GAIN</span>
         </h1>
-        <p className="text-gray-400 text-lg md:text-2xl">
+        <p className="text-gray-400 text-lg md:text-xl">
           “The worst thing I can be is the same as everybody else.” 
-          <br /> <span className="ml-15 md:ml-80">- Arnold Schwarzenegger</span>
+          <br /> <span className="ml-15 md:ml-70">- Arnold Schwarzenegger</span>
         </p>
         {/* Buttons */}
         <div className="space-x-4 my-10">

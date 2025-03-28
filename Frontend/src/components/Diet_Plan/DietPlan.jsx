@@ -80,12 +80,6 @@ const DietPlan = () => {
         <p className="text-xl text-red-500">Error fetching diet plan. Please try again.</p>
       )}
 
-      <button
-        className="mt-6 bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition"
-        onClick={() => window.location.href = "/"}
-      >
-        Go to Home
-      </button>
     </div>
   );
 };

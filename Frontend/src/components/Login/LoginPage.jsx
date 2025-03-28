@@ -27,7 +27,6 @@ const LoginPage = () => {
       const data = await response.json();
   
       if (response.ok) {
-        alert("Login successful!"); 
         localStorage.setItem("token", data.token); // Store JWT token
         localStorage.setItem("user_id", data.user_id); // Store user ID separately
         window.location.href = "/dashboard"; // Redirect after login

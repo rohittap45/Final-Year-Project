@@ -2,7 +2,7 @@ import React from "react";
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-black text-white py-16 px-8" style={{ backgroundColor: "#101011" }}>
+    <section className="bg-black text-white py-16 px-16" style={{ backgroundColor: "#101011" }}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between" style={{ marginRight: "150px" }}>
         
         {/* Left Image */}

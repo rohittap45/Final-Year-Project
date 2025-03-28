@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center py-16 px-6">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-16 px-6">
       <h1 className="text-5xl font-extrabold text-orange-500 mb-6 animate-pulse">
         About FitAI
       </h1>

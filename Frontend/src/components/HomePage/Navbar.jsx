@@ -15,7 +15,7 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remove token on logout
-        navigate("/login"); // Redirect to login page
+        navigate(""); // Redirect to login page
     };
 
     return (
@@ -29,10 +29,12 @@ const Navbar = () => {
 
                 {/* Nav Links */}
                 <ul className="hidden md:flex space-x-8">
-                    <li><a href="/dashboard" className="hover:text-orange-500 transition">Home</a></li>
+                    <li><a href="/" className="hover:text-orange-500 transition">Home</a></li>
                     <li><a href="/about" className="hover:text-orange-500 transition">About</a></li>
                     <li><a href="/contact" className="hover:text-orange-500 transition">Contact</a></li>
                     <li><a href="/dietplan" className="hover:text-orange-500 transition">Diet Plan</a></li>
+                    <li><a href="/workoutplan" className="hover:text-orange-500 transition">Workout Plan</a></li>
+                    <li><a href="/dashboard" className="hover:text-orange-500 transition">Dashboard</a></li>
                 </ul>
 
                 {/* Buttons */}
